@@ -35,7 +35,7 @@ public class Usuario {
     private String senha;
     @NotNull
     @PastOrPresent
-    private LocalDateTime instanteCadastro = LocalDateTime.now();
+    private LocalDateTime instanteCadastro;
 
     @Deprecated
     public Usuario() {}
@@ -46,6 +46,7 @@ public class Usuario {
 
         this.login = login;
         this.senha = senhaLimpa.hash();
+        this.instanteCadastro = LocalDateTime.now();
     }
 
 }
