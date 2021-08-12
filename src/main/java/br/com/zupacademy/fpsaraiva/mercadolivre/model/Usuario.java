@@ -2,6 +2,8 @@ package br.com.zupacademy.fpsaraiva.mercadolivre.model;
 
 import br.com.zupacademy.fpsaraiva.mercadolivre.shared.SenhaLimpa;
 import org.hibernate.validator.constraints.Length;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
 
@@ -9,9 +11,12 @@ import javax.persistence.*;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 @Entity
-public class Usuario {
+public class Usuario implements UserDetails {
 
     @Id
     @GeneratedValue(
@@ -36,6 +41,8 @@ public class Usuario {
     @NotNull
     @PastOrPresent
     private LocalDateTime instanteCadastro;
+    @ManyToMany(fetch = FetchType.EAGER)
+    private List<Perfil> perfil = new ArrayList<>();
 
     @Deprecated
     public Usuario() {}
@@ -47,6 +54,45 @@ public class Usuario {
         this.login = login;
         this.senha = senhaLimpa.hash();
         this.instanteCadastro = LocalDateTime.now();
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return this.perfil;
+    }
+
+    @Override
+    public String getPassword() {
+        return this.senha;
+    }
+
+    @Override
+    public String getUsername() {
+        return this.login;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
+
+    public Long getId() {
+        return id;
     }
 
 }
