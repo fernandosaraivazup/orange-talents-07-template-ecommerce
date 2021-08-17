@@ -13,11 +13,12 @@ public class NovaCategoriaRequest {
     @NotBlank
     @ValorUnico(domainClass = Categoria.class, fieldName = "nome", message = "ERRO: Categoria já cadastrada no sistema.")
     private String nome;
+
     @Positive
     @ExisteId(domainClass = Categoria.class, fieldName = "id")
     private Long idCategoriaMae;
 
-    public NovaCategoriaRequest(@NotBlank String nome,@Positive Long idCategoriaMae) {
+    public NovaCategoriaRequest(String nome, Long idCategoriaMae) {
         this.nome = nome;
         this.idCategoriaMae = idCategoriaMae;
     }

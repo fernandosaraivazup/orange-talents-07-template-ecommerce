@@ -18,11 +18,13 @@ public class Categoria {
             initialValue = 1
     )
     private Long id;
+
     @NotBlank
     @Column(nullable = false)
     private String nome;
+
     @ManyToOne
-    private Categoria categoria;
+    private Categoria categoriaMae;
 
     @Deprecated
     public Categoria(){}
@@ -31,9 +33,9 @@ public class Categoria {
         this.nome = nome;
     }
 
-    public Categoria(String nome, Categoria categoria) {
+    public Categoria(String nome, Categoria categoriaMae) {
         this.nome = nome;
-        this.categoria = categoria;
+        this.categoriaMae = categoriaMae;
     }
 
     public Long getId() {
@@ -43,5 +45,7 @@ public class Categoria {
     public String getNome() {
         return nome;
     }
+
+    //public void setCategoriaMae(Categoria categoriaMae) { this.categoriaMae = categoriaMae; }
 
 }

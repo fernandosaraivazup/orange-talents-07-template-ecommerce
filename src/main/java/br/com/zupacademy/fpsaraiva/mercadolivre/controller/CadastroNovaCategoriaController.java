@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 @RestController
@@ -19,6 +20,7 @@ public class CadastroNovaCategoriaController {
     private NovaCategoriaRepository novaCategoriaRepository;
 
     @PostMapping("/categoria")
+    @Transactional
     public ResponseEntity<NovaCategoriaResponse> cadastraNovaCategoria(@Valid @RequestBody NovaCategoriaRequest novaCategoriaRequest) {
         Categoria novaCategoria = novaCategoriaRequest.toModel(novaCategoriaRepository);
         novaCategoriaRepository.save(novaCategoria);
