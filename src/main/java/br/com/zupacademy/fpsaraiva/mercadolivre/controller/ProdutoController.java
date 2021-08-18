@@ -91,4 +91,9 @@ public class ProdutoController {
         return ResponseEntity.ok().build();
     }
 
+    @PostMapping("/{id}/pergunta")
+    public String adicionarPergunta() {
+        return "Endpoint de pergunta UP";
+    }
+
 }
