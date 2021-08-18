@@ -7,9 +7,11 @@ import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Entity
 public class Produto {
@@ -60,6 +62,13 @@ public class Produto {
     @CreationTimestamp
     private LocalDateTime createdAt;
 
+    @OneToMany(mappedBy = "produto", cascade = CascadeType.MERGE)
+    private List<ImagemProduto> imagens = new ArrayList<>();
+
+    @Deprecated
+    public Produto() {
+    }
+
     public Produto(String nome, BigDecimal valor, Integer quantidade, String descricao, List<NovaCaracteristicaRequest> caracteristicas,
                    Categoria categoria, Usuario usuario) {
         this.nome = nome;
@@ -70,6 +79,19 @@ public class Produto {
         this.categoria = categoria;
         this.usuario = usuario;
         this.createdAt = LocalDateTime.now();
+    }
+
+    public void associaImagens(List<String> urls){
+        List<ImagemProduto> imagens = urls.stream().map(url -> new ImagemProduto(url, this)).collect(Collectors.toList());
+        this.imagens.addAll(imagens);
+    }
+
+    public boolean pertenceA(Usuario usuario) {
+        return this.usuario.equals(usuario);
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
     }
 
 }

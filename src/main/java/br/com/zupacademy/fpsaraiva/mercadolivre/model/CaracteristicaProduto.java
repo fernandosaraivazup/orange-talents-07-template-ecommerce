@@ -31,6 +31,10 @@ public class CaracteristicaProduto {
     @JoinColumn(name = "product_id")
     private Produto produto;
 
+    @Deprecated
+    public CaracteristicaProduto() {
+    }
+
     public CaracteristicaProduto(String nome, String descricao, Produto produto) {
         this.nome = nome;
         this.descricao = descricao;
