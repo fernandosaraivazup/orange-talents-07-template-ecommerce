@@ -1,5 +1,6 @@
 package br.com.zupacademy.fpsaraiva.mercadolivre.model;
 
+import br.com.zupacademy.fpsaraiva.mercadolivre.adicionaopiniao.Opiniao;
 import br.com.zupacademy.fpsaraiva.mercadolivre.dto.NovaCaracteristicaRequest;
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -65,6 +66,9 @@ public class Produto {
     @OneToMany(mappedBy = "produto", cascade = CascadeType.MERGE)
     private List<ImagemProduto> imagens = new ArrayList<>();
 
+    @OneToMany(mappedBy = "produto", cascade = CascadeType.MERGE)
+    private List<Opiniao> opinioes = new ArrayList<>();
+
     @Deprecated
     public Produto() {
     }
@@ -92,6 +96,10 @@ public class Produto {
 
     public Usuario getUsuario() {
         return usuario;
+    }
+
+    public void adicionaOpiniao(Opiniao opiniao) {
+        this.opinioes.add(opiniao);
     }
 
 }

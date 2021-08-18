@@ -1,5 +1,8 @@
 package br.com.zupacademy.fpsaraiva.mercadolivre.controller;
 
+import br.com.zupacademy.fpsaraiva.mercadolivre.adicionaopiniao.Opiniao;
+import br.com.zupacademy.fpsaraiva.mercadolivre.adicionaopiniao.OpiniaoRepository;
+import br.com.zupacademy.fpsaraiva.mercadolivre.adicionaopiniao.OpiniaoRequest;
 import br.com.zupacademy.fpsaraiva.mercadolivre.dto.NovoProdutoRequest;
 import br.com.zupacademy.fpsaraiva.mercadolivre.model.Produto;
 import br.com.zupacademy.fpsaraiva.mercadolivre.model.Usuario;
@@ -35,8 +38,12 @@ public class ProdutoController {
     @Autowired
     private UploaderImagens uploaderImagens;
 
+    //Me parece que não está sendo mais usado - deprecated
+    //@Autowired
+    //EntityManager manager;
+
     @Autowired
-    EntityManager manager;
+    private OpiniaoRepository opiniaoRepository;
 
     @PostMapping
     public ResponseEntity<?> cadastrarProduto(@RequestBody @Valid NovoProdutoRequest novoProdutoRequest, @AuthenticationPrincipal Usuario usuario){
@@ -64,6 +71,23 @@ public class ProdutoController {
 
         produto.associaImagens(linksImagens);
         novoProdutoRepository.save(produto);
+
+        return ResponseEntity.ok().build();
+    }
+
+    @PostMapping("/{id}/opiniao")
+    public ResponseEntity<?> adicionarOpiniao(@PathVariable @NotNull Long id, @RequestBody @Valid OpiniaoRequest opiniaoRequest, @AuthenticationPrincipal Usuario usuario) {
+        Optional<Usuario> usuarioLogado = novoUsuarioRepository.findByLogin(usuario.getUsername());
+        Optional<Produto> produtoBuscado = novoProdutoRepository.findById(id);
+
+        if(produtoBuscado.isEmpty()){
+            return ResponseEntity.badRequest().build();
+        }
+
+        Produto produto = produtoBuscado.get();
+        Opiniao opiniao = opiniaoRequest.toModel(usuarioLogado.get(), produto);
+        opiniaoRepository.save(opiniao);
+        produto.adicionaOpiniao(opiniao);
 
         return ResponseEntity.ok().build();
     }
