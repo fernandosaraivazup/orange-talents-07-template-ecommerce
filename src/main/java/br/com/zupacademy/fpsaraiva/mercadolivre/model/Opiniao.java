@@ -1,7 +1,4 @@
-package br.com.zupacademy.fpsaraiva.mercadolivre.adicionaopiniao;
-
-import br.com.zupacademy.fpsaraiva.mercadolivre.model.Produto;
-import br.com.zupacademy.fpsaraiva.mercadolivre.model.Usuario;
+package br.com.zupacademy.fpsaraiva.mercadolivre.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;

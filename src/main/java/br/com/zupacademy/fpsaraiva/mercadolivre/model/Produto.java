@@ -1,6 +1,5 @@
 package br.com.zupacademy.fpsaraiva.mercadolivre.model;
 
-import br.com.zupacademy.fpsaraiva.mercadolivre.adicionaopiniao.Opiniao;
 import br.com.zupacademy.fpsaraiva.mercadolivre.dto.NovaCaracteristicaRequest;
 import org.hibernate.annotations.CreationTimestamp;
 

@@ -1,5 +1,6 @@
-package br.com.zupacademy.fpsaraiva.mercadolivre.adicionaopiniao;
+package br.com.zupacademy.fpsaraiva.mercadolivre.dto;
 
+import br.com.zupacademy.fpsaraiva.mercadolivre.model.Opiniao;
 import br.com.zupacademy.fpsaraiva.mercadolivre.model.Produto;
 import br.com.zupacademy.fpsaraiva.mercadolivre.model.Usuario;
 

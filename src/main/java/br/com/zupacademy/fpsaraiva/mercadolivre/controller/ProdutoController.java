@@ -1,8 +1,8 @@
 package br.com.zupacademy.fpsaraiva.mercadolivre.controller;
 
-import br.com.zupacademy.fpsaraiva.mercadolivre.adicionaopiniao.Opiniao;
-import br.com.zupacademy.fpsaraiva.mercadolivre.adicionaopiniao.OpiniaoRepository;
-import br.com.zupacademy.fpsaraiva.mercadolivre.adicionaopiniao.OpiniaoRequest;
+import br.com.zupacademy.fpsaraiva.mercadolivre.model.Opiniao;
+import br.com.zupacademy.fpsaraiva.mercadolivre.repository.OpiniaoRepository;
+import br.com.zupacademy.fpsaraiva.mercadolivre.dto.OpiniaoRequest;
 import br.com.zupacademy.fpsaraiva.mercadolivre.dto.NovoProdutoRequest;
 import br.com.zupacademy.fpsaraiva.mercadolivre.model.Produto;
 import br.com.zupacademy.fpsaraiva.mercadolivre.model.Usuario;
@@ -16,7 +16,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
-import javax.persistence.EntityManager;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.util.List;
