@@ -68,6 +68,9 @@ public class Produto {
     @OneToMany(mappedBy = "produto", cascade = CascadeType.MERGE)
     private List<Opiniao> opinioes = new ArrayList<>();
 
+    @OneToMany(mappedBy = "produto")
+    private List<Pergunta> perguntas = new ArrayList<>();
+
     @Deprecated
     public Produto() {
     }
@@ -99,6 +102,34 @@ public class Produto {
 
     public void adicionaOpiniao(Opiniao opiniao) {
         this.opinioes.add(opiniao);
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public BigDecimal getValor() {
+        return valor;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public List<Opiniao> getOpinioes() {
+        return opinioes;
+    }
+
+    public List<Pergunta> getPerguntas() {
+        return perguntas;
+    }
+
+    public List<String> getImagensUrl() {
+        return imagens.stream().map(imagemProduto -> imagemProduto.getUrl()).collect(Collectors.toList());
+    }
+
+    public Set<CaracteristicaProduto> getCaracteristicas() {
+        return caracteristicas;
     }
 
 }

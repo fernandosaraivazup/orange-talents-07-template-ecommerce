@@ -46,4 +46,12 @@ public class Pergunta {
         this.produto = produto;
     }
 
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public LocalDateTime getInstanteCriacao() {
+        return instanteCriacao;
+    }
+
 }

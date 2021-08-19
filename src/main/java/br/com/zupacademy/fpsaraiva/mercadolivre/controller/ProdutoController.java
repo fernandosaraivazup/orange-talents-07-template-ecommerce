@@ -1,5 +1,6 @@
 package br.com.zupacademy.fpsaraiva.mercadolivre.controller;
 
+import br.com.zupacademy.fpsaraiva.mercadolivre.dto.ProdutoDetalheResponse;
 import br.com.zupacademy.fpsaraiva.mercadolivre.shared.CentralDeEmail;
 import br.com.zupacademy.fpsaraiva.mercadolivre.model.Pergunta;
 import br.com.zupacademy.fpsaraiva.mercadolivre.repository.PerguntaRepository;
@@ -118,6 +119,19 @@ public class ProdutoController {
         centralDeEmail.enviaEmail(pergunta);
 
         return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<ProdutoDetalheResponse> detalharProduto(@PathVariable Long id){
+        Optional<Produto> produtoBuscado = novoProdutoRepository.findById(id);
+
+        if(produtoBuscado.isEmpty()){
+            return ResponseEntity.badRequest().build();
+        }
+
+        Produto produto = produtoBuscado.get();
+
+        return ResponseEntity.ok().body(new ProdutoDetalheResponse(produto));
     }
 
 }
