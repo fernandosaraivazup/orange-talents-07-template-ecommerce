@@ -1,5 +1,9 @@
 package br.com.zupacademy.fpsaraiva.mercadolivre.controller;
 
+import br.com.zupacademy.fpsaraiva.mercadolivre.shared.CentralDeEmail;
+import br.com.zupacademy.fpsaraiva.mercadolivre.model.Pergunta;
+import br.com.zupacademy.fpsaraiva.mercadolivre.repository.PerguntaRepository;
+import br.com.zupacademy.fpsaraiva.mercadolivre.dto.PerguntaRequest;
 import br.com.zupacademy.fpsaraiva.mercadolivre.model.Opiniao;
 import br.com.zupacademy.fpsaraiva.mercadolivre.repository.OpiniaoRepository;
 import br.com.zupacademy.fpsaraiva.mercadolivre.dto.OpiniaoRequest;
@@ -43,6 +47,12 @@ public class ProdutoController {
 
     @Autowired
     private OpiniaoRepository opiniaoRepository;
+
+    @Autowired
+    private PerguntaRepository perguntaRepository;
+
+    @Autowired
+    private CentralDeEmail centralDeEmail;
 
     @PostMapping
     public ResponseEntity<?> cadastrarProduto(@RequestBody @Valid NovoProdutoRequest novoProdutoRequest, @AuthenticationPrincipal Usuario usuario){
@@ -92,8 +102,22 @@ public class ProdutoController {
     }
 
     @PostMapping("/{id}/pergunta")
-    public String adicionarPergunta() {
-        return "Endpoint de pergunta UP";
+    public ResponseEntity<?> adicionarPergunta(@PathVariable @NotNull Long id, @RequestBody @Valid PerguntaRequest perguntaRequest,
+                                    @AuthenticationPrincipal Usuario usuario) {
+        Optional<Usuario> usuarioLogado = novoUsuarioRepository.findByLogin(usuario.getUsername());
+        Optional<Produto> produtoBuscado = novoProdutoRepository.findById(id);
+
+        if(produtoBuscado.isEmpty()){
+            return ResponseEntity.badRequest().build();
+        }
+
+        Produto produto = produtoBuscado.get();
+
+        Pergunta pergunta = perguntaRequest.toModel(usuarioLogado.get(), produto);
+        perguntaRepository.save(pergunta);
+        centralDeEmail.enviaEmail(pergunta);
+
+        return ResponseEntity.ok().build();
     }
 
 }
