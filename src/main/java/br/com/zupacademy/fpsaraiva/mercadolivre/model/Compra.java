@@ -105,4 +105,26 @@ public class Compra {
                 '}';
     }
 
+    private Set<Transacao> transacoesConcluidasComSucesso() {
+        Set<Transacao> transacoesConcluidasComSucesso = this.transacoes.stream()
+                .filter(Transacao::concluidaComSucesso)
+                .collect(Collectors.toSet());
+
+        Assert.isTrue(transacoesConcluidasComSucesso.size() <= 1,"ERRO: Existe mais de uma transacao concluída com sucesso aqui na compra " + this.id);
+
+        return transacoesConcluidasComSucesso;
+    }
+
+    public boolean processadaComSucesso() {
+        return !transacoesConcluidasComSucesso().isEmpty();
+    }
+
+    public Usuario getComprador() {
+        return comprador;
+    }
+
+    public Usuario getDonoProduto() {
+        return produtoEscolhido.getDono();
+    }
+
 }

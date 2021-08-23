@@ -46,6 +46,8 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.POST, "/usuario").permitAll()
                 .antMatchers(HttpMethod.POST, "/categoria").permitAll()
                 .antMatchers(HttpMethod.POST, "/auth").permitAll() //libera método POST em /auth
+                .antMatchers(HttpMethod.POST, "/notas-fiscais").permitAll() //endpoint liberado para simular integração sistema terceiro
+                .antMatchers(HttpMethod.POST, "/ranking").permitAll() //endpoint liberado para simular integração sistema terceiro
                 .anyRequest().authenticated() //requer auth endpoints não listados
                 .and().csrf().disable() //para auth via token
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS) //define auth stateless

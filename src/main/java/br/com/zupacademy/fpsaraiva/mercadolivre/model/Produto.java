@@ -163,4 +163,8 @@ public class Produto {
                 '}';
     }
 
+    public Usuario getDono() {
+        return this.usuario;
+    }
+
 }
