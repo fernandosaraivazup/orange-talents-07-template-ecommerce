@@ -1,4 +1,4 @@
-package br.com.zupacademy.fpsaraiva.mercadolivre.shared;
+package br.com.zupacademy.fpsaraiva.mercadolivre.shared.validacoes;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;

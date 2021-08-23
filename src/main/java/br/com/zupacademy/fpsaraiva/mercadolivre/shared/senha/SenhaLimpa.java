@@ -1,4 +1,4 @@
-package br.com.zupacademy.fpsaraiva.mercadolivre.shared;
+package br.com.zupacademy.fpsaraiva.mercadolivre.shared.senha;
 
 import org.hibernate.validator.constraints.Length;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;

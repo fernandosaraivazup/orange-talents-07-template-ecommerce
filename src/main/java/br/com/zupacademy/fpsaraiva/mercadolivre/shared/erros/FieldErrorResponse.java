@@ -1,4 +1,4 @@
-package br.com.zupacademy.fpsaraiva.mercadolivre.shared;
+package br.com.zupacademy.fpsaraiva.mercadolivre.shared.erros;
 
 public class FieldErrorResponse {
 

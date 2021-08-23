@@ -1,7 +1,7 @@
 package br.com.zupacademy.fpsaraiva.mercadolivre.controller;
 
 import br.com.zupacademy.fpsaraiva.mercadolivre.dto.ProdutoDetalheResponse;
-import br.com.zupacademy.fpsaraiva.mercadolivre.shared.CentralDeEmail;
+import br.com.zupacademy.fpsaraiva.mercadolivre.shared.email.CentralDeEmail;
 import br.com.zupacademy.fpsaraiva.mercadolivre.model.Pergunta;
 import br.com.zupacademy.fpsaraiva.mercadolivre.repository.PerguntaRepository;
 import br.com.zupacademy.fpsaraiva.mercadolivre.dto.PerguntaRequest;

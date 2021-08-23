@@ -2,8 +2,8 @@ package br.com.zupacademy.fpsaraiva.mercadolivre.dto;
 
 import br.com.zupacademy.fpsaraiva.mercadolivre.model.Categoria;
 import br.com.zupacademy.fpsaraiva.mercadolivre.repository.NovaCategoriaRepository;
-import br.com.zupacademy.fpsaraiva.mercadolivre.shared.ExisteId;
-import br.com.zupacademy.fpsaraiva.mercadolivre.shared.ValorUnico;
+import br.com.zupacademy.fpsaraiva.mercadolivre.shared.validacoes.ExisteId;
+import br.com.zupacademy.fpsaraiva.mercadolivre.shared.validacoes.ValorUnico;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Positive;

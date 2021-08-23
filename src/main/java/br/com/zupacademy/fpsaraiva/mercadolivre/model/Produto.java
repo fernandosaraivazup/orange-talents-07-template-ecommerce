@@ -132,4 +132,17 @@ public class Produto {
         return caracteristicas;
     }
 
+    public Integer getQuantidade() {
+        return quantidade;
+    }
+
+    public boolean abataEstoque(int quantidadeCompra){
+        if(quantidade >= quantidadeCompra){
+            this.quantidade -= quantidadeCompra;
+            return true;
+        }
+
+        return false;
+    }
+
 }

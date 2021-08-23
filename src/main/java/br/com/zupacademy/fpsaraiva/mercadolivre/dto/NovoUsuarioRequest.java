@@ -1,8 +1,8 @@
 package br.com.zupacademy.fpsaraiva.mercadolivre.dto;
 
 import br.com.zupacademy.fpsaraiva.mercadolivre.model.Usuario;
-import br.com.zupacademy.fpsaraiva.mercadolivre.shared.SenhaLimpa;
-import br.com.zupacademy.fpsaraiva.mercadolivre.shared.ValorUnico;
+import br.com.zupacademy.fpsaraiva.mercadolivre.shared.senha.SenhaLimpa;
+import br.com.zupacademy.fpsaraiva.mercadolivre.shared.validacoes.ValorUnico;
 import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.Email;

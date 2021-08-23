@@ -4,8 +4,8 @@ import br.com.zupacademy.fpsaraiva.mercadolivre.model.Categoria;
 import br.com.zupacademy.fpsaraiva.mercadolivre.model.Produto;
 import br.com.zupacademy.fpsaraiva.mercadolivre.model.Usuario;
 import br.com.zupacademy.fpsaraiva.mercadolivre.repository.NovaCategoriaRepository;
-import br.com.zupacademy.fpsaraiva.mercadolivre.shared.CaracteristicaUnica;
-import br.com.zupacademy.fpsaraiva.mercadolivre.shared.ExisteId;
+import br.com.zupacademy.fpsaraiva.mercadolivre.shared.validacoes.CaracteristicaUnica;
+import br.com.zupacademy.fpsaraiva.mercadolivre.shared.validacoes.ExisteId;
 
 import javax.validation.Valid;
 import javax.validation.constraints.*;

@@ -1,4 +1,4 @@
-package br.com.zupacademy.fpsaraiva.mercadolivre.shared;
+package br.com.zupacademy.fpsaraiva.mercadolivre.shared.validacoes;
 
 import br.com.zupacademy.fpsaraiva.mercadolivre.dto.NovoProdutoRequest;
 

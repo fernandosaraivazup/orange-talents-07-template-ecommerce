@@ -1,6 +1,6 @@
 package br.com.zupacademy.fpsaraiva.mercadolivre.model;
 
-import br.com.zupacademy.fpsaraiva.mercadolivre.shared.SenhaLimpa;
+import br.com.zupacademy.fpsaraiva.mercadolivre.shared.senha.SenhaLimpa;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

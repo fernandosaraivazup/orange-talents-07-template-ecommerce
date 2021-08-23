@@ -1,4 +1,4 @@
-package br.com.zupacademy.fpsaraiva.mercadolivre.shared;
+package br.com.zupacademy.fpsaraiva.mercadolivre.shared.erros;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
