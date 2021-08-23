@@ -1,6 +1,6 @@
 package br.com.zupacademy.fpsaraiva.mercadolivre.controller;
 
-import br.com.zupacademy.fpsaraiva.mercadolivre.fechacompra.CompraRequest;
+import br.com.zupacademy.fpsaraiva.mercadolivre.dto.CompraRequest;
 import br.com.zupacademy.fpsaraiva.mercadolivre.fechacompra.GatewayPagamento;
 import br.com.zupacademy.fpsaraiva.mercadolivre.model.Compra;
 import br.com.zupacademy.fpsaraiva.mercadolivre.model.Produto;

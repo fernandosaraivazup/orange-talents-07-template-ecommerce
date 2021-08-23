@@ -1,5 +1,7 @@
-package br.com.zupacademy.fpsaraiva.mercadolivre.fechacompra;
+package br.com.zupacademy.fpsaraiva.mercadolivre.dto;
 
+import br.com.zupacademy.fpsaraiva.mercadolivre.fechacompra.GatewayPagamento;
+import br.com.zupacademy.fpsaraiva.mercadolivre.fechacompra.Status;
 import br.com.zupacademy.fpsaraiva.mercadolivre.model.Compra;
 import br.com.zupacademy.fpsaraiva.mercadolivre.model.Produto;
 import br.com.zupacademy.fpsaraiva.mercadolivre.model.Usuario;

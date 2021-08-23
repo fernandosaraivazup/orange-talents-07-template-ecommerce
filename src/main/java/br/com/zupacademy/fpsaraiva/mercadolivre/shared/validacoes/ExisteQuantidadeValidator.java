@@ -1,6 +1,6 @@
 package br.com.zupacademy.fpsaraiva.mercadolivre.shared.validacoes;
 
-import br.com.zupacademy.fpsaraiva.mercadolivre.fechacompra.CompraRequest;
+import br.com.zupacademy.fpsaraiva.mercadolivre.dto.CompraRequest;
 import br.com.zupacademy.fpsaraiva.mercadolivre.model.Produto;
 import br.com.zupacademy.fpsaraiva.mercadolivre.repository.NovoProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -145,4 +145,22 @@ public class Produto {
         return false;
     }
 
+    @Override
+    public String toString() {
+        return "Produto{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", valor=" + valor +
+                ", quantidade=" + quantidade +
+                ", caracteristicas=" + caracteristicas +
+                ", descricao='" + descricao + '\'' +
+                ", usuario=" + usuario +
+                ", categoria=" + categoria +
+                ", createdAt=" + createdAt +
+                ", imagens=" + imagens +
+                ", opinioes=" + opinioes +
+                ", perguntas=" + perguntas +
+                '}';
+    }
+
 }
